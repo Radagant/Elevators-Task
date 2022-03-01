@@ -1,0 +1,15 @@
+{
+  "name": "elevators-task",
+  "version": "1.0.0",
+  "description": "Test task for TrueConf",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "index.html"
+  },
+  "author": "Radagant <radagant@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "vue": "^3.2.31"
+  }
+}
