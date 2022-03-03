@@ -21,12 +21,21 @@
     border: 1px solid black;
     width: 120px;
     height: 450px;
+    display: flex;
+    flex-direction: column-reverse;
 }
 
 .elevator {
-    margin-top: 10px;
+    margin-bottom: 0;
     margin-left: 10px;
     border: 1px solid black;
     width: 100px;
     height: 76px;
+    background-color: rgb(119, 119, 230);
+    text-align: center;
+    transition: 2000ms;
+}
+
+.moving-towards-5 {
+    margin-bottom: 356px;
 }
