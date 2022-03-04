@@ -33,7 +33,7 @@
     height: 76px;
     background-color: rgb(119, 119, 230);
     text-align: center;
-    transition: 2000ms;
+    transition: 1000ms linear, background-color 400ms;
 }
 
 .moving-towards-5 {
