@@ -46,6 +46,7 @@ export default {
       let elevator = this.$refs.elevator
       
       this.elevatorIsMoving = true
+      //Подсветка кнопки 
       event.target.style.backgroundColor = 'rgb(112, 226, 92)'
       //Мерцание лифта в движении
       elevator.style.backgroundColor = 'rgb(199, 199, 233)'
@@ -62,7 +63,8 @@ export default {
           // elevator.style.marginBottom = `${this.currentFloorPx + (90 * elevatorDirectionMarker)}px`
           // this.currentFloorPx += 90 * elevatorDirectionMarker
           await delay(1000).then(() => {
-            elevator.style.marginBottom = `${this.currentFloorPx + (90 * this.levatorDirectionMarker)}px`
+            console.log('For задействован')
+            elevator.style.marginBottom = `${this.currentFloorPx + (90 * this.elevatorDirectionMarker)}px`
             this.currentFloorPx += 90 * this.elevatorDirectionMarker
           })
         }
