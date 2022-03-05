@@ -1,26 +1,49 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container">
+    <ButtonsSection
+      :floorsAmount="floorsAmount"
+      @elevator-called="floorClickHandler"
+     />
+    <ElevatorShaft 
+      v-for="shaft in shaftsAmount" 
+      :key="shaft"
+      :event="this.myevent"
+    />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
+import ButtonsSection from '@/components/ButtonsSection'
+import ElevatorShaft from '@/components/ElevatorShaft'
 export default {
   name: 'App',
+  data() {
+    return {
+      shaftsAmount: [1],
+      floorsAmount: [1,2,3,4,5],
+      myevent: {}
+    }
+  },
   components: {
-    HelloWorld
+    ElevatorShaft,
+    ButtonsSection
+  },
+  methods: {
+    floorClickHandler(event) {
+      this.myevent=event
+      
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.container {
+  border: 2px solid black ;
+  width: 100%;
+  height: 450px;
+  display: flex;
 }
+
 </style>
