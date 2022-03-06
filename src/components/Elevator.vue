@@ -26,7 +26,7 @@ export default {
       if (!this.elevatorIsMoving && event.target.innerText != this.currentFloor) {
         this.elevatorMovingHandler(event)
       }
-      else if (event.target.innerText !== this.currentFloor && event.target.innerText !== this.targetFloor && !queue.includes(event)) {
+      else if (event.target.innerText !== this.currentFloor && event.target.innerText !== this.targetFloor && !queue.includes(event.target.innerText)) {
         queue.enqueue(event)
       }
     },
@@ -63,7 +63,6 @@ export default {
           // elevator.style.marginBottom = `${this.currentFloorPx + (90 * elevatorDirectionMarker)}px`
           // this.currentFloorPx += 90 * elevatorDirectionMarker
           await delay(1000).then(() => {
-            console.log('For задействован')
             elevator.style.marginBottom = `${this.currentFloorPx + (90 * this.elevatorDirectionMarker)}px`
             this.currentFloorPx += 90 * this.elevatorDirectionMarker
           })
@@ -87,7 +86,6 @@ export default {
 
   watch: {
     event() {
-      console.log(this.event)
       this.isElevatorOccupied(this.event)
       
     },
@@ -99,6 +97,8 @@ export default {
     }
   }
 }
+
+
 class Queue {
   constructor() {
     let floorsQueue = []
@@ -122,8 +122,14 @@ class Queue {
     this.isEmpty = function() {
       return floorsQueue.length === 0
     }
-    this.includes = function(element) {
-      return floorsQueue.includes(element)
+    this.includes = function(floorNumber) {
+      let flag = false
+      floorsQueue.forEach((element) => {
+        if (element.target.innerText == floorNumber) {
+          flag = true
+        }
+      })
+      return flag
     }
   }
 }

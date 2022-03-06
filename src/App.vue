@@ -32,7 +32,6 @@ export default {
   methods: {
     floorClickHandler(event) {
       this.myevent=event
-      
     }
   }
 }
